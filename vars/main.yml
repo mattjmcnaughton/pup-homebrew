@@ -1,0 +1,4 @@
+---
+brew_pkgs: "{{ pup_homebrew_vars_brew_pkgs }}"
+brew_linked_pkgs: "{{ pup_homebrew_vars_brew_linked_pkgs }}"
+brew_cask_pkgs: "{{ pup_homebrew_vars_brew_cask_pkgs }}"

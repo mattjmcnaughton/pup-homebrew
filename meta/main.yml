@@ -1,0 +1,18 @@
+galaxy_info:
+  author: mattjmcnaughton
+  description: A pup for mattjmcnaughtons brew configuration.
+
+  license: Apache
+
+  min_ansible_version: 1.2
+
+  platforms:
+    - name: MacOSX
+      versions:
+        - all
+
+  galaxy_tags:
+    - sheepdoge
+    - homebrew
+
+dependencies: []
