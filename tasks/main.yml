@@ -12,12 +12,21 @@
 
 - homebrew:
     name: "{{ item }}"
+    state: absent
+  with_items: "{{ brew_deleted_pkgs }}"
+
+- homebrew:
+    name: "{{ item }}"
     state: linked
-    update_homebrew: yes
   with_items: "{{ brew_linked_pkgs }}"
 
 - homebrew_cask:
     name: "{{ item }}"
     state: present
     install_options: 'appdir=/Applications'
-  with_items: "{{ brew_cask_pkgs }}
+  with_items: "{{ brew_cask_pkgs }}"
+
+- homebrew_cask:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ brew_cask_deleted_pkgs }}
