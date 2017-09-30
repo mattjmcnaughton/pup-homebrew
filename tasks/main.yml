@@ -1,8 +1,20 @@
 ---
 - name: Terminate if homebrew is not installed.
-  command: which homebrew
+  command: which brew
   register: homebrew_is_installed
   failed_when: homebrew_is_installed.rc >= 1
+
+- homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items: "{{ brew_deps }}"
+
+- homebrew_cask:
+    name: "{{ item }}"
+    state: present
+    install_options: 'appdir=/Applications'
+  with_items: "{{ brew_cask_deps }}"
 
 - homebrew:
     name: "{{ item }}"

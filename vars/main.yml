@@ -1,4 +1,6 @@
 ---
+brew_deps: "{{ pup_homebrew_vars_brew_deps }}"
+brew_cask_deps: "{{ pup_homebrew_vars_brew_cask_deps }}"
 brew_pkgs: "{{ pup_homebrew_vars_brew_pkgs }}"
 brew_deleted_pkgs: "{{ pup_homebrew_vars_brew_deleted_pkgs }}"
 brew_linked_pkgs: "{{ pup_homebrew_vars_brew_linked_pkgs }}"

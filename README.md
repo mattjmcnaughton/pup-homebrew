@@ -10,6 +10,10 @@ Currently, `pup-homebrew` presumes you have `homebrew` installed.
 ## Variables
 
 `pup-homebrew` expects you to define the following variables:
+- `pup_homebrew_vars_brew_deps` - a list of brew packages that must be installed
+  first.
+- `pup_homebrew_vars_brew_cask_deps` - a list of brew cask packages that must be
+  installed first.
 - `pup_homebrew_vars_brew_pkgs` - a list of packages you want installed via
   homebrew.
 - `pup_homebrew_vars_brew_deleted_pkgs` a list of packages we want deleted via
