@@ -1,44 +1,51 @@
 ---
-- name: Terminate if homebrew is not installed.
+- name: terminate if homebrew is not installed.
   command: which brew
   register: homebrew_is_installed
   failed_when: homebrew_is_installed.rc >= 1
 
-- homebrew:
+- name: install brews which must be installed first
+  homebrew:
     name: "{{ item }}"
     state: present
     update_homebrew: yes
   with_items: "{{ brew_deps }}"
 
-- homebrew_cask:
+- name: install brew casks which must be installed first
+  homebrew_cask:
     name: "{{ item }}"
     state: present
     install_options: 'appdir=/Applications'
   with_items: "{{ brew_cask_deps }}"
 
-- homebrew:
+- name: install brew pkgs
+  homebrew:
     name: "{{ item }}"
     state: present
     update_homebrew: yes
   with_items: "{{ brew_pkgs }}"
 
-- homebrew:
+- name: delete brew pkgs
+  homebrew:
     name: "{{ item }}"
     state: absent
   with_items: "{{ brew_deleted_pkgs }}"
 
-- homebrew:
+- name: link brew pkgs
+  homebrew:
     name: "{{ item }}"
     state: linked
   with_items: "{{ brew_linked_pkgs }}"
 
-- homebrew_cask:
+- name: install brew casks
+  homebrew_cask:
     name: "{{ item }}"
     state: present
     install_options: 'appdir=/Applications'
   with_items: "{{ brew_cask_pkgs }}"
 
-- homebrew_cask:
+- name: delete brew casks
+  homebrew_cask:
     name: "{{ item }}"
     state: absent
   with_items: "{{ brew_cask_deleted_pkgs }}"
