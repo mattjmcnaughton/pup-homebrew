@@ -1,4 +1,6 @@
 ---
+
+brew_kegs_to_tap: "{{ pup_homebrew_vars_brew_kegs_to_tap }}"
 brew_deps: "{{ pup_homebrew_vars_brew_deps }}"
 brew_cask_deps: "{{ pup_homebrew_vars_brew_cask_deps }}"
 brew_pkgs: "{{ pup_homebrew_vars_brew_pkgs }}"
